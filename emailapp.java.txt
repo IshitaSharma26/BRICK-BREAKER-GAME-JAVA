@@ -1,0 +1,39 @@
+package emailApp;
+import java.util.Scanner;
+class EmailApp {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        //  User info
+        System.out.println(" enter Fisrt name");
+        String f_name = s.next();
+        System.out.println("enter second name");
+        String l_name = s.next();
+
+        // creating object for Email class
+        Email Em1 = new Email(f_name, l_name);
+        int choice = -1;
+        do {
+            System.out.println("\n******\nEnter your choice\n1.Show Info\n2.Change Password\n3.Change Mailbox capacity\n4.alternate Email\n5.Exit");
+            choice = s.nextInt();
+            switch (choice) {
+               case 1:
+                Em1.getInfo();
+                   break;
+                case 2:
+                   Em1.set_Password();
+                   break;
+                case 3:
+                   Em1.set_mailCap();
+                   break;
+                case 4:
+                   Em1.alternate_mail();
+                   break;
+                case 5:
+                   System.out.println(" Thank you for using application!");
+                   break;
+                default:
+                    System.out.println(" INVALID CHOICE! ENTER AGAIN");
+            }
+        } while (choice != 5);
+    }
+}
